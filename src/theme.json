@@ -1,0 +1,42 @@
+{
+  "fonts": {
+    "primary": {
+      "name": "Maven+Pro",
+      "weights": [300, 400, 500, 600]
+    },
+    "special": {
+      "name": "PT+Sans",
+      "weights": [400]
+    }
+  },
+  "colors": {
+    "primary": "#b6cce2",
+    "description": "#9cb3c9",
+    "grayPrimary2": "#63809c",
+    "activePrimary": "#4799eb",
+    "white": "#FFFFFF",
+    "primaryBg": "#0e2439",
+    "headerBg": "#1f364d",
+    "secondBg": "#162c41",
+    "modalBg": "#274059",
+    "hoverBg": "#2c4763",
+    "red": "#FF0000",
+    
+    "backgroundActive": "#E9EFFC",
+    
+    "yellow": "#FF7A00",
+    "black": "#000000",
+    "headingColor": "#2F3236",
+    
+    
+    "green": "#00C500",
+    "gray": "#E3E3E3",
+    "lightGray": "#8297B0",
+    "lightRed": "#FF6161",
+    "darkRed": "#CA0000",
+    "darkBlue": "#00489C"
+  },
+  "header": {
+    "height": "68px"
+  }
+}
