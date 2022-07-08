@@ -1,9 +1,10 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useSession } from '../../contexts/SessionContext'
-import { CommunityCard } from '../CommunityCard'
+import { CommunityCard } from '../Shared/CommunityCard'
 import { Button } from '../Shared/Buttons'
 import { Layout } from '../Shared/Layout'
+import { NextButton } from '../Shared/NextButton'
 import { ArrowLeft } from '../Shared/SvgIcons'
 import { 
   CommunityContent, 
@@ -51,10 +52,12 @@ export const Communities = (props) => {
             <CommunityCard />
             <CommunityCard />
           </CommunityMainSection>
-          <PageWrapper>
+          <NextButton
+            onClick={() => {}}
+          >
             <div>Next Page</div>
             <div className='icon'><ArrowLeft /></div>
-          </PageWrapper>
+          </NextButton>
         </CommunityMainCol>
         <RightCol></RightCol>
       </CommunityContent>

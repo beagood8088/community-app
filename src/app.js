@@ -17,6 +17,7 @@ import { NewPost } from './pages/NewPost'
 import { Signup } from './pages/Signup'
 import { Header } from './components/Header'
 import { Profile } from './pages/Profile'
+import { PostDetail } from './components/PostDeail'
 
 export const App = () => {
   const [{ loading, auth }] = useSession()
@@ -34,6 +35,7 @@ export const App = () => {
             <Route path='/phone-verification' element={<PhoneVerification />} />
             <Route path='/communities' element={<Communities />} />
             <Route path='/new-post' element={<NewPost />} />
+            <Route path='/posts/:slug' element={<PostDetail />} />
             <Route path='*' element={<PageNotFound/>} />
           </Routes>
         </>

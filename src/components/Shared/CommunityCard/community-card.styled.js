@@ -45,6 +45,7 @@ export const VoteWrapper = styled.div`
   }
 `
 export const PostWrapper = styled.div`
+  cursor: pointer;
   * {
     color: ${props => props.theme.colors.primary};
     font-size: 14px;
