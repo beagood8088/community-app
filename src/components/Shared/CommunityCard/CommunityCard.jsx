@@ -1,5 +1,6 @@
+import { useNavigate } from "react-router-dom"
 import { useTheme } from "styled-components"
-import { ArrowRight, CommentIcon, SheveronUp } from "../Shared/SvgIcons"
+import { ArrowRight, CommentIcon, SheveronUp } from "../SvgIcons"
 
 
 import { 
@@ -9,6 +10,8 @@ import {
 } from "./community-card.styled"
 
 export const CommunityCard = (props) => {
+
+  const navigate = useNavigate()
   const theme = useTheme()
   return (
     <CardWrapper>
@@ -18,7 +21,9 @@ export const CommunityCard = (props) => {
         </div>
         <div className="vote-num">5</div>
       </VoteWrapper>
-      <PostWrapper>
+      <PostWrapper
+        onClick={() => navigate('posts/slug')}
+      >
         <div className="user-info">
           <div className="user-name">{'user name'}</div>
           <div className="city">{'city name'}</div>

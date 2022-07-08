@@ -18,10 +18,7 @@ export const LoginForm = styled.form`
     padding: 48px;
   }
 
-  .svg-wrapper svg{
-    height: 14px;
-    fill: white;
-  }
+
 `
 export const FormController = styled.div`
   display: flex;

@@ -179,7 +179,6 @@ export const Button = styled.button`
     background: ${props => props.theme.colors.darkRed};
     color: #FFF;
     border-color: ${props => props.theme.colors.darkRed};
-    box-shadow: 0px 4px 20px rgba(0, 117, 255, 0.35);
     &:hover {
       background: ${props => darken(0.04, props.theme.colors.darkRed)};
     }
@@ -254,4 +253,9 @@ export const Button = styled.button`
       animation: ${loadingSpineer} 1s linear infinite;
     }
   `}
+  
+  .svg-wrapper svg{
+    height: 14px;
+    fill: white;
+  }
 `
