@@ -1,5 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { QueryClientProvider, QueryClient } from "react-query";
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { Router } from './router'
 import theme from './theme.json'
 import { ThemeProvider } from './contexts/ThemeContext'
@@ -46,13 +48,18 @@ import technicalSpecifications from './assets/images/technical-specifications.pn
   downArrow
  }
 
+ const queryClient = new QueryClient();
+
 const RouteApp = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <SessionProvider>
-        <Router />
-      </SessionProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider theme={theme}>
+        <SessionProvider>
+          <Router />
+          <ReactQueryDevtools  position="bottom-right" />
+        </SessionProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
   )
 }
 

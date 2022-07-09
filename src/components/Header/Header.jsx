@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 import { useSession } from '../../contexts/SessionContext'
 import { UserPopover } from '../UserPopover'
@@ -14,7 +14,7 @@ import {
 
 export const Header = () => {
   const theme = useTheme()
-
+  const navigate = useNavigate()
   const containerRef = useRef()
   const [{ auth }] = useSession()
   return (
@@ -32,7 +32,7 @@ export const Header = () => {
               </AuthBtnWrapper>
             </>}
           </UserAvatar>
-          <Logo onClick={() => window.scroll({ top: 0, behavior: 'smooth' })}>
+          <Logo onClick={() => navigate('/')}>
             <img src={theme.images.logo} alt='logo' height={30}/>
             <img src={theme.images.logoTitle} alt='logo' height={25} />
           </Logo>
