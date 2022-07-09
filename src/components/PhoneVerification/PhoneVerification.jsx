@@ -19,7 +19,7 @@ export const PhoneVerification = (props) => {
     
     // if sms is corrct
     login()
-    navigate('/communities')
+    navigate('/')
   }
   return (
     <Layout>

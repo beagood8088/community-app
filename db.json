@@ -1,0 +1,90 @@
+{
+  "posts": [
+    { 
+      "postId": 1, 
+      "pubDate": "07/07/2022",
+      "slug": "what-is-the-",
+      "title": "How I made $430 in sales in 7 days with just a landing page", 
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae maxime magnam amet tempore necessitatibus commodi cupiditate consequatur dolore optio rerum eaque dolorum quos sunt esse repellendus, neque earum sed possimus.",
+      "topic": {
+        "topicId": 3,
+        "name": "Marketing"
+      },
+      "author": {
+        "userId": 12,
+        "name": "typicode",
+        "city": "xxx",
+        "isVerified": true
+      },
+      "replyNum": 23,
+      "voteNum": 4
+    },
+    { 
+      "postId": 2, 
+      "pubDate": "08/07/2022",
+      "slug": "what-is-the-",
+      "title": "What is the best solution for investing my money?", 
+      "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae maxime magnam amet tempore necessitatibus commodi cupiditate consequatur dolore optio rerum eaque dolorum quos sunt esse repellendus, neque earum sed possimus.",
+      "topic": {
+        "topicId": 5,
+        "name": "Invesigating"
+      },
+      "author": {
+        "userId": 12,
+        "name": "Mike",
+        "city": "yyy",
+        "isVerified": false
+      },
+      "replyNum": 13,
+      "voteNum": 2
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "label": "General",
+      "value": "GENERAL",
+      "isActive": true
+    }, {
+      "id": 2,
+      "label": "Cloud Kitchens",
+      "value": "CLOUD_KITCHENS",
+      "isActive": false
+    }, {
+      "id": 3,
+      "label": "Marketing",
+      "value": "MARKETING",
+      "isActive": false
+    }, {
+      "id": 4,
+      "label": "Supply Chain",
+      "value": "SUPPLY_CHAIN",
+      "isActive": false
+    }, {
+      "id": 5,
+      "label": "Sales",
+      "value": "SALES",
+      "isActive": false
+    }, {
+      "id": 6,
+      "label": "Delivery Apps",
+      "value": "DELIVERY_APPS",
+      "isActive": false
+    }, {
+      "id": 7,
+      "label": "Menu Engineering",
+      "value": "MENU_ENGINEERING",
+      "isActive": false
+    }, {
+      "id": 8,
+      "label": "Funiture & Machine",
+      "value": "FUNITURE_MACHINE",
+      "isActive": false
+    } , {
+      "id": 9,
+      "label": "legal",
+      "value": "LEGAL",
+      "isActive": false
+    }
+  ]
+}

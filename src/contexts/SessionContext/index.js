@@ -14,13 +14,14 @@ export const SessionContext = createContext()
 export const SessionProvider = ({ children }) => {
   const [state, setState] = useState({
     auth: null,
+    isVerified: true,
     token: null,
     user: null,
     loading: true
   })
 
   const setValuesFromLocalStorage = async () => {
-    const { auth, token, user } = await getValuesFromLocalStorage()
+    const { auth, isVerified, token, user } = await getValuesFromLocalStorage()
     setState({
       ...state,
       auth,
@@ -34,7 +35,7 @@ export const SessionProvider = ({ children }) => {
     const auth = await localStorage.getItem('token')
     const token = await localStorage.getItem('token')
     const user = await localStorage.getItem('user', true)
-    return { auth, token, user }
+    return { auth, token, user, }
   }
 
   const login = async (values) => {

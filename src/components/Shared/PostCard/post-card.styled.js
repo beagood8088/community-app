@@ -51,12 +51,12 @@ export const PostWrapper = styled.div`
     font-size: 14px;
     line-height: 20px;
   }
-  .user-info {
+  .author-info {
     display: flex;
     flex-direction: row-reverse;
     column-gap: 18px;
     margin-bottom: 12px;
-    .user-name {
+    .name {
       font-size: 16px;
       font-weight: 600;
       cursor: pointer;
@@ -64,7 +64,6 @@ export const PostWrapper = styled.div`
     .city {
       font-size: 16px;
       color: ${props => props.theme.colors.description};
-
     }
   }
   .post {
@@ -98,7 +97,7 @@ export const PostWrapper = styled.div`
         background-color: ${props => props.theme.colors.hoverBg};
       }
     }
-    .body {
+    .detail {
       text-align: right;
       margin-bottom: 8px;
       color: ${props => props.theme.colors.description};
