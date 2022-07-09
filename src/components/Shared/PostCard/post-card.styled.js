@@ -8,6 +8,10 @@ export const CardWrapper = styled.div`
   align-items: center;
   flex-direction: row-reverse;
   column-gap: 8px;
+  transition: .3s ease-in-out;
+  &:hover {
+    background-color: ${props => props.theme.colors.hoverBg};
+  }
 `
 export const VoteWrapper = styled.div`
   display: flex;

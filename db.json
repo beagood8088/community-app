@@ -2,17 +2,17 @@
   "posts": [
     { 
       "postId": 1, 
-      "pubDate": "07/07/2022",
+      "pubDate": "2022-07-03T05:50:06",
       "slug": "what-is-the-",
       "title": "How I made $430 in sales in 7 days with just a landing page", 
       "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae maxime magnam amet tempore necessitatibus commodi cupiditate consequatur dolore optio rerum eaque dolorum quos sunt esse repellendus, neque earum sed possimus.",
       "topic": {
         "topicId": 3,
-        "name": "Marketing"
+        "label": "Marketing"
       },
       "author": {
         "userId": 12,
-        "name": "typicode",
+        "name": "Jhon Doe",
         "city": "xxx",
         "isVerified": true
       },
@@ -21,17 +21,17 @@
     },
     { 
       "postId": 2, 
-      "pubDate": "08/07/2022",
+      "pubDate": "2022-06-04T07:00:22",
       "slug": "what-is-the-",
       "title": "What is the best solution for investing my money?", 
       "detail": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae maxime magnam amet tempore necessitatibus commodi cupiditate consequatur dolore optio rerum eaque dolorum quos sunt esse repellendus, neque earum sed possimus.",
       "topic": {
         "topicId": 5,
-        "name": "Invesigating"
+        "label": "Sales"
       },
       "author": {
         "userId": 12,
-        "name": "Mike",
+        "name": "Mixim Petrovsky",
         "city": "yyy",
         "isVerified": false
       },

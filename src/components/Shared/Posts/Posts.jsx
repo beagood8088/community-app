@@ -35,7 +35,7 @@ export const Posts = (props) => {
   return (
     <Layout>
       <PostListContent>
-        {true && 
+        {auth && isVerified && 
           <LeftCol>
             <TopicSideBar />
           </LeftCol>
