@@ -33,7 +33,7 @@ export const App = () => {
             <Route path='/signup' element={<Signup />} />
             <Route path='/my-profile' element={<Profile />} />
             <Route path='/phone-verification' element={<PhoneVerification />} />
-            <Route path='/posts' element={<Posts />} />
+            <Route path='/community' element={<Posts />} />
             <Route path='/create' element={<NewPost />} />
             <Route path='/posts/:slug' element={<PostDetail />} />
             <Route path='*' element={<PageNotFound/>} />

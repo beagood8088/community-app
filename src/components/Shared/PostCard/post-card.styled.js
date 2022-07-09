@@ -104,6 +104,11 @@ export const PostWrapper = styled.div`
     .detail {
       text-align: right;
       margin-bottom: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 1; /* number of lines to show */
+      -webkit-box-orient: vertical;
       color: ${props => props.theme.colors.description};
     }
     .bottom {

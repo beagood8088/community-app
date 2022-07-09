@@ -25,7 +25,7 @@ export const FormController = styled.div`
   flex-direction: column;
   row-gap: 14px;
   margin-bottom: 20px;
-  div {
+  .logindiv {
     width: 100%;
   }
   label {

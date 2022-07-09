@@ -19,9 +19,11 @@ export const PostHeader = styled.div`
 `
 export const InputController = styled(FormController)`
   flex-direction: row-reverse;
+  column-gap: 0;
   label {
     text-align: right;
-    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
   }
   input {
     text-align: right;
@@ -41,13 +43,17 @@ export const InputController = styled(FormController)`
   margin-bottom: 0;
 `
 export const ErrorWrapper = styled.div`
-  margin-top: 8px;
-  padding-right: 80px;
-  text-align: right;
-  color: red;
-  font-size: 14px;
-  @media(min-width: 568px) {
-    padding-right: 105px;
+  display: flex;
+  flex-direction: row-reverse;
+  label {
+    text-align: right;
+    min-width: 80px;
+  }
+  p {
+    margin-top: 8px;
+    text-align: right;
+    color: red;
+    font-size: 14px;
   }
 `
 export const PostBody = styled.div`
@@ -90,5 +96,9 @@ export const FormControllerUpload = styled(FormBottomContainer)`
     svg path{
       fill: white;
     }
+  }
+  .error-msg {
+    padding-left: 16px;
+    color: red;
   }
 `

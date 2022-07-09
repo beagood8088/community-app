@@ -2,6 +2,7 @@ import styled from "styled-components"
 
 
 export const PostListContent = styled.div`
+  margin-top: 56px;
   display: flex;
   flex-direction: column;
   row-gap: 16px;

@@ -18,8 +18,17 @@ export const PostCard = ({post}) => {
   const [{auth, isVerified}] = useSession()
   const [open, setOpen] = useState(false)
 
+
+  const toggleUpvote = async (postId) => {
+    /** toggle api to revert */
+  }
+
   const handleClickPost = () => {
-    if (isVerified) navigate(`posts/${post?.slug || post?.postId}`)
+    if (!auth) {
+      navigate('/login')
+      return false
+    }
+    if (isVerified) navigate(`/posts/${post?.slug || post?.postId}`)
     else setOpen(true)
   }
 
@@ -27,8 +36,8 @@ export const PostCard = ({post}) => {
     <>
       <CardWrapper>
         <VoteWrapper>
-          <div className="vote-icon">
-            <SheveronUp />
+          <div className="vote-icon `active`">
+            <SheveronUp onClick={toggleUpvote(post.id)}/>
           </div>
           <div className="vote-num">{post?.voteNum}</div>
         </VoteWrapper>

@@ -50,7 +50,7 @@ export const Login = (props) => {
         <LoginForm onSubmit={handleSubmit(onSubmit)}>
           <FormController isInValid={!!errors?.mobilePhone}>
             <label>Mobile Phone*</label>
-            <div>
+            <div className='logindiv'>
               <Controller
                 name="mobilePhone"
                 control={control}

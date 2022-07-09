@@ -14,7 +14,6 @@ export const topicOptions = [
 export const customStyles = {
   control: (css) => ({
     ...css,
-    width:  "240px",
     height: '46px',
     color: 'black'
   }),

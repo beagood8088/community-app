@@ -25,9 +25,22 @@ export const PhoneVerification = (props) => {
   const [smsCodes, setSmsCodes] = useState(["", "", "", ""])
   const [isValid, setIsValid] = useState(false)
 
+  const refs = [useRef(), useRef(), useRef(), useRef()]
+
   const handleInputChange = (index, value) => {
     setSmsCodes(smsCodes.map((val, i) => index === i ? value : val))
+    if(value && index < 3) {
+      refs[index+1].current.element.focus()
+      refs[index+1].current.element.select()
+    }
   }
+
+  const handleFocus = (index) => {
+    if (smsCodes[index]) {
+      refs[index].current.element.select()
+    }
+  }
+  
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -40,7 +53,7 @@ export const PhoneVerification = (props) => {
     /**TODO: submit to OTM server to validate phone number */
     setSmsCodes(["", "", "", ""])
     login()
-    navigate('/')
+    navigate('/community')
   };
 
   useEffect(() => {
@@ -56,7 +69,7 @@ export const PhoneVerification = (props) => {
     return true;
   }
 
-  const refs = [useRef(), useRef(), useRef(), useRef()]
+
 
   return (
     <Layout>
@@ -67,6 +80,8 @@ export const PhoneVerification = (props) => {
             <div className='inner'>
               {[...Array(4).keys()].map(index => (
                 <NumberInput
+                  key={index}
+                  onFocus={() => handleFocus(index)}
                   type='tel'
                   name={`sms${index}`}
                   mask={"0"}
