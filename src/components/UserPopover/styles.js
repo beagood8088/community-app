@@ -22,13 +22,12 @@ export const HeaderItem = styled.div`
 `
 
 export const PopoverBody = styled.div`
-  color: #b6cce2;
   background-color: ${props => props.theme.colors.modalBg};
   z-index: 1001;
   border: 1px solid ${props => props.theme.colors.modalBg};
-  box-shadow: 0px 2px 30px rgba(215, 224, 235, 0.5);
+  box-shadow: 0 0 24px rgb(12 31 49 / 35%);
   border-radius: 4px;
-  padding: 18px;
+  padding: 5px 0px;
 `
 export const PopoverHeader = styled.div`
   padding-bottom: 19px;
@@ -48,19 +47,24 @@ export const PopoverHeader = styled.div`
   }
 `
 
-export const PopoverList = styled.div`
-  padding: 10px 0;
-  margin-bottom: 8px;
-`
+export const PopoverList = styled.div``
 
 export const PopoverListItem = styled.div`
   display: flex;
-  column-gap: 10px;
   align-items: center;
-  padding: 8px 0;
+  padding: 5px 15px;
   cursor: pointer;
+  transition: background-color 0.3s linear;
+
+  &:hover {
+    background-color: ${props => props.theme.colors.hoverBg};
+  }
+  span {
+    color: ${props => props.theme.colors.description};
+  }
   .icon-wrapper {
     padding: 8px;
+    margin-right: 5px;
     svg {
       margin-right: 0;
       width: 20px;
