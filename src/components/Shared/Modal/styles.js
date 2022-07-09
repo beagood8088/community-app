@@ -56,9 +56,9 @@ export const ModalIcon = styled.span`
   cursor: pointer;
   z-index: 2;
   svg {
-    font-size: 24px;
-    width: 20px;
-    height: 20px;
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
   }
 
   @media(min-width: 769px){

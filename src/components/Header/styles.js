@@ -73,7 +73,7 @@ export const AuthBtnWrapper = styled.div`
   column-gap: 16px;
   
   a {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     color: ${props => props.theme.colors.primary};
     text-decoration: none;
