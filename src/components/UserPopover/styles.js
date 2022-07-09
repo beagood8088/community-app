@@ -1,23 +1,39 @@
 import styled, { css } from 'styled-components'
 
 export const HeaderItem = styled.div`
-  cursor: pointer;
-  display: flex;
-  padding: 3px 10px;
-  border: 1px solid white;
-  border-radius: 4px;
-  align-items: flex-end;
-  column-gap: 4px;
-  .user-name {
-    font-size: 20px;
-    line-height: 20px;
-    font-weight: 500;
-    color: white;
+  > div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid ${props => props.theme.colors.primary};
+    border-radius: 3px;
+    overflow: hidden;
   }
-  .is-verified {
+
+`
+
+export const NameWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  color: ${props => props.theme.colors.primary};
+
+  .verified {
     font-size: 12px;
     color: ${props => props.theme.colors.green};
+    margin-left: 5px;
+  }
+`
 
+export const IconWrapper = styled.div`
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  svg {
+    path {
+      fill: ${props => props.theme.colors.primary};
+    }
   }
 `
 

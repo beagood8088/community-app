@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding: 20px 15px;
+  padding: 35px 30px;
   > h1 {
-    font-size: 36px;
+    font-size: 32px;
     color: white;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     text-align: center;
-    text-transform: uppercase;
+    letter-spacing: 3px;
   }
 `

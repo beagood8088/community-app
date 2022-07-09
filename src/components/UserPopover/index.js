@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { usePopper } from 'react-popper'
-import { UserIcon, LogoutIcon } from '../Shared/SvgIcons'
+import { UserIcon, LogoutIcon, ArrowDown } from '../Shared/SvgIcons'
 import { useSession } from '../../contexts/SessionContext'
 import {
   HeaderItem,
   PopoverBody,
   PopoverList,
   PopoverListItem,
+  NameWrapper,
+  IconWrapper
 } from './styles'
 
 export const UserPopover = (props) => {
   const navigate = useNavigate()
-  const [, { logout }] = useSession()
+  const [{ isVerified }, { logout }] = useSession()
   const [open, setOpen] = useState(false)
   const referenceElement = useRef()
   const popperElement = useRef()
@@ -78,8 +80,15 @@ export const UserPopover = (props) => {
           ref={referenceElement}
           onClick={() => setOpen(!open)}
         >
-          <div className='user-name'>{'Michal Jhon'}</div>
-          <div className='is-verified'>{'verified'}</div>
+          <div>
+            <NameWrapper>
+              <span>Ali Alyami</span>
+              <span className='verified'>{isVerified ? 'Verified' : 'Unverified'}</span>
+            </NameWrapper>
+            <IconWrapper>
+              <ArrowDown />
+            </IconWrapper>
+          </div>
         </HeaderItem>
         <PopoverBody ref={popperElement} style={popStyle} {...attributes.popper}>
           <PopoverList>
