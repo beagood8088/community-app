@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 import { useSession } from '../../contexts/SessionContext'
 import { UserPopover } from '../UserPopover'
+import { ExplorePopover } from './ExplorePopover'
 import {
   Container,
   InnerContainer,
@@ -37,7 +38,7 @@ export const Header = () => {
             <img src={theme.images.logoTitle} alt='logo' height={25} />
           </Logo>
           <ThreeDashWrapper>
-            <MenuIcon />
+            <ExplorePopover />
           </ThreeDashWrapper>
         </InnerContainer>
       </Container>
