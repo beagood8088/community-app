@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { LoginForm } from "../Login/login.styled";
-
+import { IMaskInput } from 'react-imask';
 export const SMSForm = styled(LoginForm)`
   max-width: 500px;
 `
@@ -22,7 +22,7 @@ export const InputWrapper = styled.div`
     column-gap: 14px;
   }
 `
-export const NumberInput = styled.input`
+export const NumberInput = styled(IMaskInput)`
   width: 38px;
   height: 38px;
   border-radius: 4px;

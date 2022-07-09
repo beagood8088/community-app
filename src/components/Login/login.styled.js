@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const LoginWrapper = styled.div`
   display: flex;
@@ -25,14 +25,19 @@ export const FormController = styled.div`
   flex-direction: column;
   row-gap: 14px;
   margin-bottom: 20px;
+  div {
+    width: 100%;
+  }
   label {
+    min-width: 120px;
     color: #b6cce2;
     font-size: 17px;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
   input {
     padding: 10px 15px;
+    width: 100%;
   }
 
   @media (min-width: 576px) {
@@ -41,6 +46,24 @@ export const FormController = styled.div`
     align-items: center;
   }
 
+  ${({isInValid}) => isInValid && css`
+    input {
+      border: 2px solid red;
+      outline: none;
+      &:focus {
+        border: 2px solid red;
+      }
+    }
+    label {
+      color: red;
+    }
+  `}
+
+`
+export const ErrorWrapper = styled.div`
+  margin-top: 8px;
+  color: red;
+  font-size: 14px;
 `
 export const FormBottomContainer = styled.div`
   display: flex;

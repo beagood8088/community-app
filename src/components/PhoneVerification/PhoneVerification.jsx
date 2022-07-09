@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+
+
 import { useSession } from '../../contexts/SessionContext'
 import { FormBottomContainer, LoginWrapper } from '../Login/login.styled'
 import { Button } from '../Shared/Buttons'
@@ -14,23 +16,28 @@ export const PhoneVerification = (props) => {
   const navigate = useNavigate()
 
   const [smsCodes, setSmsCodes] = useState([])
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    
-    // if sms is corrct
+
+  const handleSubmit = (data) => {
+    console.log("success", data)
+
+    /**TODO: submit to OTM server to validate phone number */
     login()
     navigate('/')
-  }
+  };
+
   return (
     <Layout>
       <LoginWrapper>
-        <SMSForm onSubmit={(e) => handleSubmit(e)}>
+        <SMSForm onSubmit={(e) => handleSubmit()}>
           <SMSTitle>Please Enter the SMS Code Sent to Your Mobile Phone</SMSTitle>
           <InputWrapper>
             <div className='inner'>
               <NumberInput
-              />
-              <NumberInput
+                mask={"0"}
+                value=""
+                onAccept={
+                  (value, mask) => console.log(value)
+                }
               />
               <NumberInput
               />

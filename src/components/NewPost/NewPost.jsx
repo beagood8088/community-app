@@ -1,103 +1,108 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 import Select from 'react-select'
 import { yupResolver } from '@hookform/resolvers/yup';
+import { Controller, useForm } from 'react-hook-form'
+import { convertToRaw } from 'draft-js';
+import draftToMarkdown from 'draftjs-to-markdown';
 import { Button } from '../Shared/Buttons'
 import { Input } from '../Shared/Inputs'
 import { Layout } from '../Shared/Layout'
 import { ArrowRight, UploadImageIcon } from '../Shared/SvgIcons'
 import { 
+  ErrorWrapper,
   FormBottomContainerInPost, 
-  FormControllerInPost, 
+  FormControllerWrapper, 
   FormControllerUpload, 
+  InputController, 
   PostBody, 
   PostForm, 
   PostHeader } from './new-post.styled'
 import { FullEditor } from './FullEditor'
-import { useRef } from 'react'
-import { useState } from 'react'
 import { isLess200MB } from '../../utils'
-import { Controller, useForm } from 'react-hook-form'
 import { schema } from './schema';
+import { customStyles, topicOptions } from './data';
 
-
-const topicOptions = [
-  { value: 'GENERAL', label: 'General' },
-  { value: 'CLOUD_KITCHENS', label: 'Cloud Kitchens' },
-  { value: 'MARKETING', label: 'Marketing' },
-  { value: 'SUPPLY_CHAIN', label: 'Supply Chain' },
-  { value: 'SALES', label: 'Sales' },
-  { value: 'DELIEVERY_APPS', label: 'Delievery Apps' },
-  { value: 'MENU_ENGINEERING', label: 'Menu Engineering' },
-  { value: 'Funiture_MACHINE', label: 'Funiture & Machine' },
-  { value: 'LEGAL', label: 'Legal' },
-]
-
-const customStyles = {
-  // indicatorSeparator: () => { }, 
-  control: (css) => ({
-    ...css,
-    width:  "240px",
-    height: '46px',
-    color: 'black'
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    zIndex: 2,
-  }),
-  
-}
 
 export const NewPost = (props) => {
-  
   const imageRef = useRef(null)
   const [fileInfo, setFileInfo] = useState(null)
-
-  const { control, handleSubmit, formState: { errors } } = useForm({
+  const [editorState, setEditorState] = useState()
+  
+  const { control, handleSubmit, reset, formState: { errors } } = useForm({
     defaultValues: {
       title: '',
-      topic: {}
+      topic: topicOptions[0]
     },
-    mode: 'onBlur',
+    mode: 'onChange',
     resolver: yupResolver(schema)
   });
 
+  const initialForm = () => {
+    reset()
+    setEditorState(null)
+    setFileInfo(null)
+  }
+
   const onSubmit = (data) => {
-    console.log(data)
+    const newPost = {
+      ...data,
+      topic: data.topic.value,
+      file: fileInfo,
+      detail: editorState ? draftToMarkdown(convertToRaw(editorState.getCurrentContent())) : null
+    }
+    console.log(newPost);
+    /** after storing newPost into db */
+    initialForm()
   }
 
   const handleImageChange = () => {
-    // check if file sze is less then 200MB
+    /** check if file sze is less then 200MB */
     const file =  imageRef.current.files[0]
-    if(file && isLess200MB(file)) {
-      setFileInfo(imageRef.current.files[0])
+    if(!file) {
+      alert('file is not exist')
     }
+    if(!isLess200MB(file)) {
+      alert('file is too big. please upload less then 200MB')
+    }
+    setFileInfo(imageRef.current.files[0])
   }
-
-  console.log(errors)
+  
   return (
     <Layout>
       <PostForm onSubmit={handleSubmit(onSubmit)}>
          <PostHeader>
-          <FormControllerInPost isValidate={!!errors?.title}>
-            <label>Title</label>
-            <Controller
-              name="title"
-              control={control}
-              render={({ field }) => <Input {...field} />}
-            />
-          </FormControllerInPost>
-          <FormControllerInPost>
+          <FormControllerWrapper>
+            <InputController isInValidate={!!errors?.title}>
+              <label>Title</label>
+              <Controller
+                name="title"
+                control={control}
+                render={({ field }) => <Input {...field} />}
+              />
+            </InputController>
+            <ErrorWrapper>{errors?.title && errors?.title.message}</ErrorWrapper>
+          </FormControllerWrapper>
+          <InputController style={{color: 'black'}}>
             <label>Topic</label>
-            <Select
-              styles={customStyles}
-              defaultValue={topicOptions[0]}
-              onChange={(newValue) => {console.log(newValue)}}
-              options={topicOptions} 
+            <Controller
+              name="topic"
+              control={control}
+              render={({ field }) =>  
+                <Select
+                  {...field}
+                  styles={customStyles}
+                  defaultValue={topicOptions[0]}
+                  options={topicOptions} 
+                />
+              }
             />
-          </FormControllerInPost>
+          </InputController>
         </PostHeader>
         <PostBody>
-          <FullEditor />
+          <FullEditor 
+            editorState={editorState}
+            setEditorState={setEditorState}
+          />
         </PostBody>
         <FormControllerUpload>
           {fileInfo && 
@@ -115,10 +120,10 @@ export const NewPost = (props) => {
             type={'file'} 
             onChange={() => handleImageChange()}
           />
-          
         </FormControllerUpload>
         <FormBottomContainerInPost>
           <Button
+            disabled={false}
             color='rainbow'
             type={'submit'}
           >
