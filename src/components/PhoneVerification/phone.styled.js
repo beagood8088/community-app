@@ -29,3 +29,9 @@ export const NumberInput = styled(IMaskInput)`
   font-size: 24px;
   text-align: center;
 `
+export const IncorrectOPTCodeMessage = styled.div`
+  margin-top: 24px;
+  font-size: 22px;
+  color: red;
+  text-align: center;
+`
