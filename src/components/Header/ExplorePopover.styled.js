@@ -56,7 +56,7 @@ export const IconWrapper = styled.div`
   margin-right: 8px;
 
   svg {
-    width: 18px;
-    height: 18px;
+    width: 16px !important;
+    height: 16px !important;
   }
 `
