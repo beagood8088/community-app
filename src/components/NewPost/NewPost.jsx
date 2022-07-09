@@ -1,9 +1,10 @@
 import React from 'react'
 import Select from 'react-select'
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '../Shared/Buttons'
 import { Input } from '../Shared/Inputs'
 import { Layout } from '../Shared/Layout'
-import { ArrowRight, FilterIcon, UploadIcon } from '../Shared/SvgIcons'
+import { ArrowRight, UploadImageIcon } from '../Shared/SvgIcons'
 import { 
   FormBottomContainerInPost, 
   FormControllerInPost, 
@@ -11,7 +12,12 @@ import {
   PostBody, 
   PostForm, 
   PostHeader } from './new-post.styled'
-import TextEditor from './TextEditor'
+import { FullEditor } from './FullEditor'
+import { useRef } from 'react'
+import { useState } from 'react'
+import { isLess200MB } from '../../utils'
+import { Controller, useForm } from 'react-hook-form'
+import { schema } from './schema';
 
 
 const topicOptions = [
@@ -43,17 +49,42 @@ const customStyles = {
 
 export const NewPost = (props) => {
   
-  const handleSubmit = () => {
+  const imageRef = useRef(null)
+  const [fileInfo, setFileInfo] = useState(null)
 
+  const { control, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      title: '',
+      topic: {}
+    },
+    mode: 'onBlur',
+    resolver: yupResolver(schema)
+  });
+
+  const onSubmit = (data) => {
+    console.log(data)
   }
 
+  const handleImageChange = () => {
+    // check if file sze is less then 200MB
+    const file =  imageRef.current.files[0]
+    if(file && isLess200MB(file)) {
+      setFileInfo(imageRef.current.files[0])
+    }
+  }
+
+  console.log(errors)
   return (
     <Layout>
-      <PostForm onSubmit={handleSubmit}>
+      <PostForm onSubmit={handleSubmit(onSubmit)}>
          <PostHeader>
-          <FormControllerInPost>
+          <FormControllerInPost isValidate={!!errors?.title}>
             <label>Title</label>
-            <Input />
+            <Controller
+              name="title"
+              control={control}
+              render={({ field }) => <Input {...field} />}
+            />
           </FormControllerInPost>
           <FormControllerInPost>
             <label>Topic</label>
@@ -66,13 +97,25 @@ export const NewPost = (props) => {
           </FormControllerInPost>
         </PostHeader>
         <PostBody>
-          <TextEditor />
+          <FullEditor />
         </PostBody>
         <FormControllerUpload>
-          <label htmlFor='input'>
-            <UploadIcon />
+          {fileInfo && 
+          <div className='file-info'>
+            <span>{fileInfo?.name} {isLess200MB(fileInfo).toFixed(2)}MB</span>
+          </div>
+          }
+          <label htmlFor='image'>
+            <UploadImageIcon />
           </label>
-          <input id='input' type={'file'} />
+          <input 
+            ref={imageRef}
+            id='image' 
+            name="image" 
+            type={'file'} 
+            onChange={() => handleImageChange()}
+          />
+          
         </FormControllerUpload>
         <FormBottomContainerInPost>
           <Button

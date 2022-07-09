@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom"
 import { useSession } from "../../../contexts/SessionContext"
+import { convertMoment } from "../../../utils"
 import { ArrowRight, CommentIcon, SheveronUp } from "../SvgIcons"
 
 
@@ -33,10 +34,10 @@ export const PostCard = ({post}) => {
         </div>
         <div className="post">
           <div className="header">
-            <div className="pub-date">{post?.pubDate}</div>
+            <div className="pub-date">{convertMoment(post?.pubDate).fromNow()}</div>
             {auth && isVerified && <>
             <div className="icon"><ArrowRight /></div>
-            <div className="topic-name">{post?.topic?.name}</div>
+            <div className="topic-name">{post?.topic?.label}</div>
             </>}
           </div>
           <div className="title">{post?.title}</div>

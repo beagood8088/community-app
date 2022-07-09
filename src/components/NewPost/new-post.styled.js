@@ -12,6 +12,7 @@ export const PostHeader = styled.div`
 `
 export const PostBody = styled.div`
   background-color: ${props => props.theme.colors.headerBg};
+  min-height: 340px;
 `
 
 export const FormControllerInPost = styled(FormController)`
@@ -22,6 +23,7 @@ export const FormControllerInPost = styled(FormController)`
   input {
     text-align: right;
   }
+  
 `
 export const FormBottomContainerInPost = styled(FormBottomContainer)`
   display: flex;

@@ -11,7 +11,7 @@ export const PostHeader = (props) => {
   
   const handleNewPost = () => {
     if (auth) {
-      navigate('/new-post')
+      navigate('/create')
       return;
     }
     navigate('/signup')
