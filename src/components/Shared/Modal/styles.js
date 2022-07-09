@@ -1,76 +1,67 @@
 import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100%;
-  z-index: 1001;
-`
-
-export const CloseIcon = styled.div`
-  position: absolute;
-  left: 15px;
-  top: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  @media (min-width: 769px) {
-    left: 25px;
-    top: 20px;
-    svg {
-      width: 25px;
-      height: 25px;
+  ${({ zx }) => zx && css`
+    .popup {
+      z-index: ${zx} !important;
     }
-  }
-
-  @media (min-width: 769px) {
-    left: 30px;
-    top: 25px;
-    svg {
-      width: 35px;
-      height: 35px;
-    }
-  }
-
-  @media (min-width: 1440px) {
-    left: 60px;
-    top: 48px;
-    svg {
-      width: 48px;
-      height: 48px;
-    }
-  }
-`
-
-export const InnerContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: ${props => props.theme.colors.primary};
-  ${({ isSecundry }) => isSecundry && css`
-    background-color: ${props => props.theme.colors.lightRed};;
   `}
-  padding: 20px 15px;
+`
 
-  @media (min-width: 576px) {
-    padding: 25px 30px;
-  }
+export const ModalDialog = styled.div`
+  position: relative;
+  background-color: ${({ theme, isTransparent }) => isTransparent ? 'transparent' : theme.colors.modalBg};
+  padding: ${({ padding }) => padding || '0px'};
+  width: 100vw;
+  border-radius: 0px;
+  box-sizing: border-box;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: ${({ height }) => height || '100%'};;
+  max-height: 100vh;
+  overflow: auto;
 
   @media (min-width: 769px) {
-    padding: 30px;
+    width: ${({ width }) => width || '50%'};
+    max-height: 90vh;
+    border-radius: 10px;
+    height: auto;
+  }
+`
+
+export const ModalHeader = styled.div`
+  display: flex;
+`
+
+export const ModalTitle = styled.h2`
+  text-align: left;
+  font-size: 30px;
+  letter-spacing: 0px;
+  color: #010300;
+  opacity: 1;
+  margin: 0px 0px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  text-transform: capitalize;
+  flex: 1;
+`
+
+export const ModalOrderTypes = styled.div`
+  margin-right: 15px;
+`
+export const ModalIcon = styled.span`
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+  z-index: 2;
+  svg {
+    font-size: 24px;
+    width: 20px;
+    height: 20px;
   }
 
-  @media (min-width: 1440px) {
-    padding: 50px 60px;
+  @media(min-width: 769px){
+    position: absolute;
   }
 `
