@@ -15,11 +15,9 @@ import { IncorrectOPTCodeMessage, InputWrapper, NumberInput, SMSForm, SMSTitle }
 /** use this if OTP code is correct or not to see incorrect message */
 const isValidOTPCode = true
 
-
 export const PhoneVerification = (props) => {
 
-
-  const [, {login}] = useSession()
+  const [, { login }] = useSession()
   const navigate = useNavigate()
 
   const [smsCodes, setSmsCodes] = useState(["", "", "", ""])
@@ -27,11 +25,19 @@ export const PhoneVerification = (props) => {
 
   const refs = [useRef(), useRef(), useRef(), useRef()]
 
+  useEffect(() => {
+    refs[0].current.element.focus()
+  }, [])
+
+  useEffect(() => {
+    setIsValid(validateInputs())
+  }, [smsCodes])
+
   const handleInputChange = (index, value) => {
     setSmsCodes(smsCodes.map((val, i) => index === i ? value : val))
-    if(value && index < 3) {
-      refs[index+1].current.element.focus()
-      refs[index+1].current.element.select()
+    if (value && index < 3) {
+      refs[index + 1].current.element.focus()
+      refs[index + 1].current.element.select()
     }
   }
 
@@ -40,13 +46,12 @@ export const PhoneVerification = (props) => {
       refs[index].current.element.select()
     }
   }
-  
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(smsCodes);
 
-    if(!isValidOTPCode) {
+    if (!isValidOTPCode) {
       return false
     }
 
@@ -55,11 +60,7 @@ export const PhoneVerification = (props) => {
     login()
     navigate('/community')
   };
-
-  useEffect(() => {
-    setIsValid(validateInputs())
-  }, [smsCodes])
-
+  
   const validateInputs = () => {
     for (let i = 0; i < smsCodes.length; i++) {
       if (!smsCodes[i]) {
@@ -68,8 +69,6 @@ export const PhoneVerification = (props) => {
     }
     return true;
   }
-
-
 
   return (
     <Layout>
@@ -90,7 +89,6 @@ export const PhoneVerification = (props) => {
                   onAccept={(value) => handleInputChange(index, value)}
                 />
               ))}
-              
             </div>
           </InputWrapper>
           <FormBottomContainer>

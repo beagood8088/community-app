@@ -1,7 +1,7 @@
 {
   "posts": [
     { 
-      "postId": 1, 
+      "id": 1, 
       "pubDate": "2022-07-03T05:50:06",
       "slug": "How-I-made",
       "title": "How I made $430 in sales in 7 days with just a landing page", 
@@ -20,7 +20,7 @@
       "voteNum": 4
     },
     { 
-      "postId": 2, 
+      "id": 2, 
       "pubDate": "2022-06-04T07:00:22",
       "slug": "what-is-the-best",
       "title": "What is the best solution for investing my money?", 

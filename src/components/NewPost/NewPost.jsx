@@ -22,6 +22,7 @@ import { FullEditor } from './FullEditor'
 import { isLess200MB } from '../../utils'
 import { schema } from './schema';
 import { topicOptions } from './data';
+import { IconWrapper } from '../Shared/IconWrapper';
 
 const customStyles = {
   control: (css) => ({
@@ -139,7 +140,9 @@ export const NewPost = (props) => {
             <div className='error-msg'>{fileInfoError}</div>
           }
           <label htmlFor='image'>
-            <UploadImageIcon />
+            <IconWrapper>
+              <UploadImageIcon />
+            </IconWrapper>
           </label>
           <input
             ref={imageRef}

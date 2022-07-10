@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
-import { getAllTopics } from "../../../api";
-import { CheckOff, CheckOn } from "../SvgIcons";
+import { getAllTopics } from "../../api";
+import { IconWrapper } from "../Shared/IconWrapper";
+import { CheckOn, CheckOff } from "../Shared/SvgIcons";
 import { 
   Header, 
   TopicListWrapper, 
@@ -38,7 +39,8 @@ export const TopicSideBar = (props) => {
           >
             <TopicRow className="topic-row">
               <label>{topic?.label}</label>
-              {topic?.isActive ? <span><CheckOn /></span>  : <span><CheckOff /></span>}
+              {topic?.isActive ? 
+                <IconWrapper><CheckOn /></IconWrapper>  : <IconWrapper><CheckOff /></IconWrapper>}
             </TopicRow>    
           </TopicWrapper>
         ))}
