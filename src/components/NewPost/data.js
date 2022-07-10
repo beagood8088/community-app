@@ -21,5 +21,4 @@ export const customStyles = {
     ...provided,
     zIndex: 2,
   }),
-  
 }

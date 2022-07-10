@@ -1,10 +1,14 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   padding-top: ${props => props.theme.header.height};
   min-height: 100vh;
   color: ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.primaryBg};
+  ${({ centerY }) => centerY && css`
+    display: flex;
+    align-items: center;
+  `}
 `
 
 export const InnerContainer = styled.div`
