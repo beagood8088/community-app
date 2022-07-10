@@ -74,12 +74,8 @@ export const InputController = styled(FormController)`
   row-gap: 6px;
   input {
     width: 100%;
-    transition: .2s ease-in;
+    /* transition: .2s ease-in; */
     border-radius: 2px;
-    &:focus {
-      border-left: 4px solid darkgreen;
-      box-shadow: none;
-    }
   }
   label {
     margin-bottom: 0px;
@@ -93,9 +89,6 @@ export const InputController = styled(FormController)`
         border: 2px solid red;
         border-left: 4px solid darkgreen;
       }
-    }
-    label {
-      color: red;
     }
   `}
   @media(min-width: 768px) {

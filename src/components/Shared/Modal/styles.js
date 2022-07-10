@@ -24,7 +24,7 @@ export const ModalDialog = styled.div`
   @media (min-width: 769px) {
     width: ${({ width }) => width || '50%'};
     max-height: 90vh;
-    border-radius: 10px;
+    border-radius: 8px;
     height: auto;
   }
 `

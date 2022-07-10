@@ -50,10 +50,10 @@ export const InfoController = styled.div`
       stroke: white;
     }
   }
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 `
 export const HistoryWrapper = styled.div`
-  margin-top: 24px;
+  margin-top: 50px;
   text-align: right;
   .title {
     font-size: 24px;
@@ -63,16 +63,12 @@ export const HistoryWrapper = styled.div`
   }
 `
 export const HistoryCardWrapper = styled.div`
-  padding: 0 0px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   row-gap: 24px;
-  @media(min-width: 768px) {
-    padding: 0 60px;  
-  }
 `
 export const HistoryCard = styled.div`
-  
   border-radius: 4px;
   .reply-date {
     font-size: 14px;
@@ -80,10 +76,12 @@ export const HistoryCard = styled.div`
     margin-bottom: 8px;
   }
   .post-title {
+    text-align: right;
     background-color: ${props => props.theme.colors.secondBg};
-    padding: 8px 10px;
+    padding: 16px 16px;
     font-size: 18px;
     line-height: 32px;
     color: ${props => props.theme.colors.grayPrimary2};
+    cursor: pointer;
   }
 `

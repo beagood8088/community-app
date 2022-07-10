@@ -54,22 +54,20 @@ export const Profile = (props) => {
         <RowContainer>
           <Button
             color="red"
-            naked
+            borderRadius='3px'
           >Delete Account</Button>
         </RowContainer>
       </UserInfoWrapper>
       <HistoryWrapper>
         <div className="title">History</div>
         <HistoryCardWrapper>
-          <HistoryCard>
-            <div className="reply-date">A reply on June, 2022</div>
-            <div className="post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, porro eveniet doloremque veniam praesentium provident aspernatur, asperiores vitae repudiandae tenetur eum soluta corporis maxime in optio iusto velit? Deleniti, commodi.</div>
-          </HistoryCard>
-          <HistoryCard>
-            <div className="reply-date">A reply on June, 2022</div>
-            <div className="post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, porro eveniet doloremque veniam praesentium provident aspernatur, asperiores vitae repudiandae tenetur eum soluta corporis maxime in optio iusto velit? Deleniti, commodi.</div>
-          </HistoryCard>
-
+          {[...Array(5).keys()].map(index => (
+            <HistoryCard key={index}>
+              <div className="reply-date">A reply on June, 2022</div>
+              <div className="post-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, porro eveniet doloremque veniam praesentium provident aspernatur, asperiores vitae repudiandae tenetur eum soluta corporis maxime in optio iusto velit? Deleniti, commodi.</div>
+            </HistoryCard>
+          ))}
+          
           <NextButton
             onClick={() => {}}
           >

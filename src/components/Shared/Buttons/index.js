@@ -199,17 +199,18 @@ export const Button = styled.button`
     border-color: ${props => props.theme.colors.headerBg};
     border-radius: 4px;
     &:hover {
-      background: ${props => props.theme.colors.darkBlue};
+      background: ${props => props.theme.colors.headerBg};
     }
     &:active {
-      background: ${props => darken(0.1, props.theme.colors.darkBlue)};
+      background: ${props => darken(0.1, props.theme.colors.headerBg)};
     }
     ${({ naked }) => naked && css`
       background: transparent;
       border-color: ${props => props.theme.colors.primary};
-      color: white;
+      color: ${props => props.theme.colors.primary};
       &:hover {
         border: none;
+        background: ${props => props.theme.colors.headerBg};
       }
     `}
   `}

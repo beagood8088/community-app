@@ -5,6 +5,7 @@ export const Container = styled.div`
   width: 100%;
   top: 0px;
   left: 0px;
+  z-index: 999;
   background-color: ${props => props.theme.colors.headerBg};
 `
 

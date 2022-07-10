@@ -14,7 +14,7 @@ export const SessionContext = createContext()
 export const SessionProvider = ({ children }) => {
   const [state, setState] = useState({
     auth: null,
-    isVerified: false,
+    isVerified: true,
     token: null,
     user: null,
     loading: true

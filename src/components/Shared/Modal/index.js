@@ -35,6 +35,9 @@ const ModalUI = (props) => {
       window.addEventListener('keydown', handleKeyDown)
       return () => window.removeEventListener('keydown', handleKeyDown)
     }
+    return () => {
+      document.body.style.overflow = 'auto'
+    }
   }, [open])
 
   return (

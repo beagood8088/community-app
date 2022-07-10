@@ -36,9 +36,6 @@ export const InputController = styled(FormController)`
         border: 2px solid red;
       }
     }
-    label {
-      color: red;
-    }
   `}
   margin-bottom: 0;
 `

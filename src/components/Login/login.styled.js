@@ -10,7 +10,7 @@ export const LoginWrapper = styled.div`
 
 export const LoginForm = styled.form`
   padding: 30px 20px;
-  box-shadow: 0px 2px 30px rgba(215, 224, 235, 0.1);
+  box-shadow: 0 0 48px rgb(0 0 0 / 35%);
   border-radius: 12px;
   width: 100%;
   @media (min-width: 768px) {
@@ -50,12 +50,6 @@ export const FormController = styled.div`
     input {
       border: 2px solid red;
       outline: none;
-      &:focus {
-        border: 2px solid red;
-      }
-    }
-    label {
-      color: red;
     }
   `}
 
@@ -90,7 +84,7 @@ export const FormBottomContainer = styled.div`
   @media (min-width: 768px) {
     margin-top: 56px;
     > button {
-      height: 55px;
+      height: 44px;
     }
   }
 `

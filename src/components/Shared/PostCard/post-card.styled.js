@@ -10,7 +10,7 @@ export const CardWrapper = styled.div`
   column-gap: 8px;
   transition: .3s ease-in-out;
   &:hover {
-    background-color: ${props => props.theme.colors.hoverBg};
+    /* background-color: ${props => props.theme.colors.hoverBg}; */
   }
 `
 export const VoteWrapper = styled.div`
