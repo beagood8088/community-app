@@ -1,9 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { useSession } from "../../../contexts/SessionContext"
-import { convertMoment } from "../../../utils"
-import { ArrowRight, CommentIcon, SheveronUp } from "../SvgIcons"
-import { Modal } from "../Modal"
+import { useSession } from "../../contexts/SessionContext"
+import { convertMoment } from "../../utils"
+import { ArrowRight, CommentIcon, SheveronUp } from "../Shared/SvgIcons"
+import { Modal } from "../Shared/Modal"
 
 
 import { 
@@ -11,13 +11,12 @@ import {
   PostWrapper, 
   VoteWrapper 
 } from "./post-card.styled"
-import { VerifyStep } from "../../VerifyStep"
+import { VerifyStep } from "../VerifyStep"
 
 export const PostCard = ({post}) => {
   const navigate = useNavigate()
   const [{auth, isVerified}] = useSession()
   const [open, setOpen] = useState(false)
-
 
   const toggleUpvote = async (postId) => {
     /** toggle api to revert */

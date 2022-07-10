@@ -6,14 +6,15 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '../Shared/Buttons'
 import { Input } from '../Shared/Inputs'
 import { Layout } from '../Shared/Layout'
-import { ArrowRight } from '../Shared/SvgIcons'
-import { 
+import { ArrowRight, MobilePhoneIcon } from '../Shared/SvgIcons'
+import {
   ErrorWrapper,
-  FormBottomContainer, 
-  FormController, 
+  FormBottomContainer,
+  FormController,
   LoginForm,
-  LoginWrapper, 
+  LoginWrapper,
 } from './login.styled'
+import { IconWrapper } from '../Shared/IconWrapper';
 
 
 const schema = yup.object().shape({
@@ -25,9 +26,9 @@ const schema = yup.object().shape({
 }).required();
 
 export const Login = (props) => {
-  
+
   const navigate = useNavigate();
-  
+
   const { control, handleSubmit, getValues, formState: { errors, isValid } } = useForm({
     defaultValues: {
       mobilePhone: '',
@@ -43,7 +44,7 @@ export const Login = (props) => {
     navigate('/phone-verification')
   };
 
-  
+
   return (
     <Layout>
       <LoginWrapper>
@@ -57,9 +58,12 @@ export const Login = (props) => {
                 render={({ field }) => <Input {...field} placeholder="966561955765" />}
               />
               <ErrorWrapper>{errors?.mobilePhone?.message}</ErrorWrapper>
+              <div className='icon'>
+                <MobilePhoneIcon />
+              </div>
             </div>
           </FormController>
-          
+
           <FormBottomContainer>
             <Button
               disabled={!isValid || !getValues('mobilePhone')}

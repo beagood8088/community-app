@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
 import { Button } from "../Shared/Buttons"
+import { IconWrapper } from "../Shared/IconWrapper"
 import { Layout } from "../Shared/Layout"
 import { NextButton } from "../Shared/NextButton"
-import { ArrowLeft, EditIcon } from "../Shared/SvgIcons"
+import { ArrowLeft, DeleteIcon, EditIcon } from "../Shared/SvgIcons"
 import { 
   HistoryCard,
   HistoryCardWrapper, 
@@ -22,7 +23,9 @@ export const Profile = (props) => {
             <div className="edit-wrapper">
               <div>{'Ali Alaymi'}</div>
               <Link to={'edit'}>
-                <EditIcon />
+                <IconWrapper>
+                  <EditIcon />
+                </IconWrapper>
               </Link>
             </div>
           </InfoController>
@@ -53,9 +56,14 @@ export const Profile = (props) => {
         </RowContainer>
         <RowContainer>
           <Button
-            color="red"
+            withIcon
+            naked
+            color="darkBlue"
             borderRadius='3px'
-          >Delete Account</Button>
+          >
+            <span>Delete Account</span>
+            <DeleteIcon />
+          </Button>
         </RowContainer>
       </UserInfoWrapper>
       <HistoryWrapper>

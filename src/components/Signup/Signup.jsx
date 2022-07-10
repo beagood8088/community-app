@@ -24,7 +24,7 @@ export const Signup = (props) => {
 
   const [owner, setOwner] = useState()
 
-  const { control, handleSubmit, reset, getValues, formState: { errors } } = useForm({
+  const { control, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
       firstName: '',
       lastName: '',

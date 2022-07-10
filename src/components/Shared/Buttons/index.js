@@ -255,6 +255,13 @@ export const Button = styled.button`
     }
   `}
   
+  ${({ withIcon }) => withIcon  && css`
+    display: flex;
+    align-items: center;
+    column-gap: 12px;
+    justify-content: center;
+  `}
+  
   .svg-wrapper svg{
     height: 14px;
     fill: white;
