@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const LoginWrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const LoginWrapper = styled.div`
 
 export const LoginForm = styled.form`
   padding: 30px 20px;
-  box-shadow: 0px 2px 30px rgba(215, 224, 235, 0.1);
+  box-shadow: 0 0 48px rgb(0 0 0 / 35%);
   border-radius: 12px;
   width: 100%;
   @media (min-width: 768px) {
@@ -25,14 +25,19 @@ export const FormController = styled.div`
   flex-direction: column;
   row-gap: 14px;
   margin-bottom: 20px;
+  .logindiv {
+    width: 100%;
+  }
   label {
+    min-width: 120px;
     color: #b6cce2;
     font-size: 17px;
     font-weight: 600;
-    margin-bottom: 0;
+    margin-bottom: 20px;
   }
   input {
     padding: 10px 15px;
+    width: 100%;
   }
 
   @media (min-width: 576px) {
@@ -41,6 +46,18 @@ export const FormController = styled.div`
     align-items: center;
   }
 
+  ${({isInValid}) => isInValid && css`
+    input {
+      border: 2px solid red;
+      outline: none;
+    }
+  `}
+
+`
+export const ErrorWrapper = styled.div`
+  margin-top: 8px;
+  color: red;
+  font-size: 14px;
 `
 export const FormBottomContainer = styled.div`
   display: flex;
@@ -67,7 +84,7 @@ export const FormBottomContainer = styled.div`
   @media (min-width: 768px) {
     margin-top: 56px;
     > button {
-      height: 55px;
+      height: 44px;
     }
   }
 `

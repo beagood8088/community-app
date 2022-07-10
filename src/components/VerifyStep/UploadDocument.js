@@ -7,6 +7,7 @@ import {
   ButtonWrapper,
   ErrorMessage
 } from './UploadDocument.styled'
+import { isLess200MB } from '../../utils'
 
 export const UploadDocument = (props) => {
   const {
@@ -24,7 +25,7 @@ export const UploadDocument = (props) => {
       return;
     }
     // File size validation
-    if (event.target.files[0].size > 200 * 1024) {
+    if (!isLess200MB(event.target.files[0])) {
       setErrorMsg('Maximum fie size is 200Mbyte!')
       return;
     }

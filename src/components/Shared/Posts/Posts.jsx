@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useQuery } from "react-query";
 import { Layout } from '../Layout'
 import { NextButton } from '../NextButton'
@@ -8,7 +8,6 @@ import {
   CenterCol, 
   PostMainSection, 
   LeftCol, 
-  RightCol, 
 } from './posts.styled'
 import { PostHeader } from '../PostCard/PostHeader'
 import { PostCard } from '../PostCard'
@@ -55,7 +54,6 @@ export const Posts = (props) => {
           </NextButton>
         </CenterCol>
       </PostListContent>
-
     </Layout>
   )
 }

@@ -65,7 +65,7 @@ export const ExplorePopover = (props) => {
   }
 
   const handleGoToPage = (index) => {
-    // navigate(index)
+    navigate(index)
     setOpen(false)
   }
 

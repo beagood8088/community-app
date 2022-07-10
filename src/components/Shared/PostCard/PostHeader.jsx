@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 import { useSession } from "../../../contexts/SessionContext"
@@ -5,9 +6,14 @@ import { Button } from "../Buttons"
 
 
 export const PostHeader = (props) => {
-
   const [{auth}] = useSession()
   const navigate = useNavigate()
+  const [typeSelected, setTypeSelected] = useState('popular')
+
+  const filterList = [
+    { key: 'popular', name: 'Popular' },
+    { key: 'new', name: 'New' }
+  ]
   
   const handleNewPost = () => {
     if (auth) {
@@ -20,13 +26,16 @@ export const PostHeader = (props) => {
   return (
     <HeaderWrapper>
       <div className='btn-group'>
-        <Button
-          color='darkBlue'
-        ><span>Popular</span></Button>
-        <Button
-          color='darkBlue'
-          naked
-        ><span>New</span></Button>
+        {filterList.map((item, i) => (
+          <Button
+            key={i}
+            color='darkBlue'
+            naked={item.key !== typeSelected}
+            onClick={() => setTypeSelected(item.key)}
+          >
+            <span>{item.name}</span>
+          </Button>  
+        ))}
       </div>
       <div>
         <Button

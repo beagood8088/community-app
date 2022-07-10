@@ -17,6 +17,7 @@ import homeHero from './assets/images/home-hero.jpg'
 import missionVision from './assets/images/mission-vision.jpg'
 import qibixLogo from './assets/images/qibix-logo.png'
 import technicalSpecifications from './assets/images/technical-specifications.png'
+import heroBg from './assets/images/hero-bg.jpg'
  
  /**
   * Theme icons
@@ -35,7 +36,8 @@ import technicalSpecifications from './assets/images/technical-specifications.pn
   homeHero,
   missionVision,
   qibixLogo,
-  technicalSpecifications
+  technicalSpecifications,
+  heroBg
  }
  
  theme.icons = {
