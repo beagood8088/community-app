@@ -81,6 +81,9 @@ export const Popup = (props) => {
       if (modalRef.current) {
         modalRef.current.focus()
       }
+    } else {
+      document.body.style.overflow = 'auto'
+      document.body.style.paddingRight = '0px'
     }
     /**
      * Remove backdrop
