@@ -14,7 +14,7 @@ export const SessionContext = createContext()
 export const SessionProvider = ({ children }) => {
   const [state, setState] = useState({
     auth: null,
-    isVerified: true,
+    isVerified: false,
     token: null,
     user: null,
     loading: true
@@ -47,6 +47,13 @@ export const SessionProvider = ({ children }) => {
       // user: values?.userid,
       // token: values.passwordhash,
       loading: false
+    })
+  }
+
+  const changeVerify = (index) => {
+    setState({
+      ...state,
+      isVerified: index
     })
   }
 
@@ -99,7 +106,8 @@ export const SessionProvider = ({ children }) => {
   const functions = {
     login,
     logout,
-    changeUser
+    changeUser,
+    changeVerify
   }
 
   return (
