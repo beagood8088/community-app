@@ -29,7 +29,10 @@ export const AcceptDocument = styled.div`
   margin-top: 30px;
   > h2 {
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 24px;
+  }
+  > p {
+    line-height: 32px;
   }
 `
 
@@ -37,5 +40,6 @@ export const UploadRequirement = styled.div`
   margin-top: 25px;
   p {
     font-size: 16px;
+    line-height: 24px;
   }
 `

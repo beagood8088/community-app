@@ -18,8 +18,6 @@ export const LoginForm = styled.form`
     max-width: 768px;
     padding: 48px;
   }
-
-
 `
 export const FormController = styled.div`
   display: flex;
@@ -80,7 +78,6 @@ export const FormBottomContainer = styled.div`
     display: flex;
     align-items: center;
     border-radius: 4px;
-
     svg {
       margin-left: 10px;
       transition: all 0.2s linear;
