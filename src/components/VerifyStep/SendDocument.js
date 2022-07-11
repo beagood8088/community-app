@@ -1,5 +1,6 @@
 import React from 'react'
 import { ArrowRight, FileIcon } from '../Shared/SvgIcons'
+import { useSession } from '../../contexts/SessionContext'
 import { Button } from '../Shared'
 import {
   Container,
@@ -13,8 +14,11 @@ export const SendDocument = (props) => {
   const {
     setStep
   } = props
+  const [, { changeVerify }] = useSession()
+
   const handleSubmit = () => {
     setStep && setStep(3)
+    changeVerify(true)
   }
 
   return (
