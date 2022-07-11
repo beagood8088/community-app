@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { useSession } from "../../../contexts/SessionContext"
-import { Button } from "../Buttons"
+import { useSession } from "../../contexts/SessionContext"
+import { Button } from "../Shared/Buttons"
 
 
 export const PostHeader = (props) => {

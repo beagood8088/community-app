@@ -1,24 +1,24 @@
 import React from 'react'
 import { useQuery } from "react-query";
-import { Layout } from '../Layout'
-import { NextButton } from '../NextButton'
-import { ArrowLeft } from '../SvgIcons'
+import { Layout } from '../Shared/Layout'
+import { NextButton } from '../Shared/NextButton'
+import { ArrowLeft } from '../Shared/SvgIcons'
 import { 
   PostListContent, 
   CenterCol, 
   PostMainSection, 
   LeftCol, 
 } from './posts.styled'
-import { PostHeader } from '../PostCard/PostHeader'
 import { PostCard } from '../PostCard'
-import { getAllPosts } from '../../../api';
-import { useSession } from '../../../contexts/SessionContext';
+import { getAllPosts } from '../../api';
+import { useSession } from '../../contexts/SessionContext';
 import { TopicSideBar } from '../TopicSideBar';
+import { PostHeader } from '../PostCard/PostHeader';
 
 export const Posts = (props) => {
   const [{auth, isVerified}] = useSession()
 
-  const { data, error, isLoading, isError } = useQuery("posts", getAllPosts);
+  const { data, error, isLoading } = useQuery("posts", getAllPosts);
   
   if (isLoading) {
     return (

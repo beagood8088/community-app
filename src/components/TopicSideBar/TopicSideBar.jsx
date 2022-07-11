@@ -1,8 +1,9 @@
 import { useQuery } from "react-query";
-import { getAllTopics } from "../../../api";
-import { CheckOff, CheckOn } from "../SvgIcons";
+import { getAllTopics } from "../../api";
+import { Button } from "../Shared/Buttons";
+import { IconWrapper } from "../Shared/IconWrapper";
+import { CheckOn, CheckOff } from "../Shared/SvgIcons";
 import { 
-  Header, 
   TopicListWrapper, 
   TopicRow, 
   TopicWrapper, 
@@ -11,7 +12,7 @@ import {
 
 
 export const TopicSideBar = (props) => {
-  const { data, error, isLoading, isError } = useQuery("topics", getAllTopics);
+  const { data, error, isLoading } = useQuery("topics", getAllTopics);
   
   if (isLoading) {
     return (
@@ -26,10 +27,18 @@ export const TopicSideBar = (props) => {
   const toggleTopic = (topicId) => {
 
   }
+
+  const handleApply = () => {
+
+  }
     
   return (
     <Wrapper>
-      <Header>Topics</Header>
+      <div className="full-width-btn">
+        <Button
+          color="darkBlue"
+        >Topics</Button>
+      </div>
       <TopicListWrapper>
         {data.map((topic, index) => (
           <TopicWrapper
@@ -38,11 +47,18 @@ export const TopicSideBar = (props) => {
           >
             <TopicRow className="topic-row">
               <label>{topic?.label}</label>
-              {topic?.isActive ? <span><CheckOn /></span>  : <span><CheckOff /></span>}
+              {topic?.isActive ? 
+                <IconWrapper><CheckOn /></IconWrapper>  : <IconWrapper><CheckOff /></IconWrapper>}
             </TopicRow>    
           </TopicWrapper>
         ))}
       </TopicListWrapper>
+      <div className="full-width-btn bottom">
+        <Button
+          onClick={handleApply}
+          color="darkBlue"
+        >Apply</Button>
+      </div>
     </Wrapper>
   )
 }

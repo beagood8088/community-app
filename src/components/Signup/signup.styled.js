@@ -87,7 +87,6 @@ export const InputController = styled(FormController)`
       outline: none;
       &:focus {
         border: 2px solid red;
-        border-left: 4px solid darkgreen;
       }
     }
   `}

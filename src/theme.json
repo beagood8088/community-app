@@ -23,13 +23,12 @@
     "red": "#FF0000",
     "darkYellow": "#f9af1a",
     
+    "success": "#2da44e",
     "backgroundActive": "#E9EFFC",
     
     "yellow": "#FF7A00",
     "black": "#000000",
     "headingColor": "#2F3236",
-    
-    
     "green": "#00C500",
     "gray": "#E3E3E3",
     "lightGray": "#8297B0",

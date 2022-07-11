@@ -10,6 +10,7 @@ export const LoginWrapper = styled.div`
 
 export const LoginForm = styled.form`
   padding: 30px 20px;
+  background-color: ${props => props.theme.colors.headerBg};
   box-shadow: 0 0 48px rgb(0 0 0 / 35%);
   border-radius: 12px;
   width: 100%;
@@ -26,7 +27,16 @@ export const FormController = styled.div`
   row-gap: 14px;
   margin-bottom: 20px;
   .logindiv {
+    position: relative;
     width: 100%;
+    .icon {
+      position: absolute;
+      top: 11px;
+      right: 8px;
+      svg {
+        fill: ${props => props.theme.colors.primaryBg}
+      }
+    }
   }
   label {
     min-width: 120px;

@@ -1,10 +1,16 @@
 import styled from "styled-components";
 
  export const Wrapper = styled.div`
- 
- `
- export const Header = styled.div`
-  
+  .full-width-btn {
+    margin-bottom: 8px;
+    button {
+      width: 100%;
+    }
+  }
+  .full-width-btn.bottom {
+    margin-top: 8px;
+  }
+  margin-bottom: 32px;
  `
  export const TopicListWrapper = styled.div`
   display: flex;

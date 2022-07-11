@@ -27,6 +27,7 @@ export const RowContainer = styled.div`
 
 export const InfoController = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: row-reverse;
   justify-content: space-between;
   column-gap: 32px;
@@ -45,6 +46,7 @@ export const InfoController = styled.div`
   .edit-wrapper {
     display: flex;
     flex-direction: row-reverse;
+    align-items: center;
     column-gap: 24px;
     svg path {
       stroke: white;
