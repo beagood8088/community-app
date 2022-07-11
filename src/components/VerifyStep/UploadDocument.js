@@ -1,62 +1,33 @@
-import React, { useState, useRef } from 'react'
+import React from 'react'
 import { ArrowRight } from '../Shared/SvgIcons'
 import { Button } from '../Shared'
-import {
-  Container,
-  FormController,
-  ButtonWrapper,
-  ErrorMessage
-} from './UploadDocument.styled'
-import { isLess200MB } from '../../utils'
+import { Container, ButtonWrapper, AcceptDocument, UploadRequirement } from './UploadDocument.styled'
+import { Description } from './SendDocument.styled'
 
 export const UploadDocument = (props) => {
   const {
     setStep
   } = props
 
-  const inputRef = useRef()
-  const [file, setFile] = useState(null)
-  const [errorMsg, setErrorMsg] = useState(null)
-
-  const handleChange = (event) => {
-    let allowedExtension = ['image/jpeg', 'image/jpg', 'image/png','image/gif','image/bmp']
-    if (!((event.target.files[0].type === 'application/pdf') || (allowedExtension.indexOf(event.target.files[0].type) > -1))) {
-      setErrorMsg('The field is only accepted pdf or image format!')
-      return;
-    }
-    // File size validation
-    if (!isLess200MB(event.target.files[0])) {
-      setErrorMsg('Maximum fie size is 200Mbyte!')
-      return;
-    }
-    setErrorMsg(null)
-    setFile(event.target.files[0])
-  }
-
   const handleSubmit = () => {
-    if (!file) {
-      setErrorMsg('The field is required*')
-      return
-    }
-    setErrorMsg(null)
-    setStep && setStep(2)
+    setStep(2)
   }
 
   return (
     <Container>
-      <FormController>
-        <span>{file?.name ?? 'Choose file'}</span>
-        <input
-          type='file'
-          name="file"
-          id="file"
-          accept='.pdf, .png, .jpg, .jpeg'
-          ref={inputRef}
-          onChange={handleChange}
-        />
-        <Button color='rainbow' onClick={() => inputRef?.current && inputRef.current.click()}>Browse</Button>
-      </FormController>
-      {errorMsg && <ErrorMessage>{errorMsg}</ErrorMessage>}
+      <Description>You have to be a verified user to open this post.</Description>
+      <Description>To be verified you have to be an F&B shop owner or personnel.</Description>
+      <Description>To verify requirement, please upload your proof of identity documents:</Description>
+      <AcceptDocument>
+        <h2>Accepted documents:</h2>
+        <p>1 - Shop Commerical Certificate</p>
+        <p>2 - Work ID</p>
+        <p>3 - Company ID</p>
+      </AcceptDocument>
+      <UploadRequirement>
+        <p>- Make sure each docuemnt is not more that 200mb size</p>
+        <p>- Only send pdf documents or images.</p>
+      </UploadRequirement>
       <ButtonWrapper>
         <Button
           color='rainbow'
