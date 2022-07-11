@@ -2,6 +2,7 @@ import React, { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useTheme } from 'styled-components'
 import { useSession } from '../../contexts/SessionContext'
+import { SuperKitchenIcon1, SuperKitchenIcon2, SuperKitchenIcon3 } from '../Shared/SvgIcons'
 import { UserPopover } from '../UserPopover'
 import { ExplorePopover } from './ExplorePopover'
 import {
@@ -35,7 +36,7 @@ export const Header = () => {
           </UserAvatar>
           <Logo onClick={() => navigate('/')}>
             <img src={theme.images.logo} alt='logo' height={30}/>
-            <img src={theme.images.logoTitle} alt='logo' height={25} />
+              <SuperKitchenIcon1 />
           </Logo>
           <ThreeDashWrapper>
             <ExplorePopover />
