@@ -4,6 +4,7 @@ export const Container = styled.div``
 
 export const Description = styled.p`
   font-size: 20px;
+  line-height: 28px;
   color: ${props => props.theme.colors.white};
 `
 
