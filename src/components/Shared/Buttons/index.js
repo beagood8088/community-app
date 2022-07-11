@@ -235,6 +235,25 @@ export const Button = styled.button`
     `}
   `}
 
+  ${({ color }) => color === 'dark' && css`
+    display: flex;
+    align-items: center;
+    color: #fff;
+    border-radius: 3px;
+    border: none;
+    background-color: ${props => props.theme.colors.headerBg};
+    box-shadow: 0px 4px 20px rgba(0, 117, 255, 0.35);
+    &:hover {
+      background-color: #253d56;
+    }
+    &:active {
+      background: ${props => darken(0.1, props.theme.colors.headerBg)};
+    }
+    ${({ naked }) => naked && css`
+      background: transparent;
+    `}
+  `}
+
   ${({ isLoading }) => isLoading && css`
     color: transparent;
     &::after {
